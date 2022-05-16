@@ -1,5 +1,7 @@
 package com.ganguli.qrgenerator.controller;
 
+import java.net.UnknownHostException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,7 +25,7 @@ public class ShortenURLController {
 	
 	
 	@PostMapping("/shorten")
-	public ResponseEntity<ShortenedURLDTO> shortedURL(@RequestBody ShortenURLDTO shortenURLDTO) throws BadRequestException {
+	public ResponseEntity<ShortenedURLDTO> shortedURL(@RequestBody ShortenURLDTO shortenURLDTO) throws BadRequestException, UnknownHostException {
 		return new ResponseEntity<>(shortenURLService.shortenURL(shortenURLDTO), HttpStatus.ACCEPTED);
 	}
 }
